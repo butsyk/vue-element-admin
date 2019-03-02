@@ -74,7 +74,6 @@ export function formatTime(time, option) {
   }
 }
 
-// 格式化时间
 export function getQueryObject(url) {
   url = url == null ? window.location.href : url
   const search = url.substring(url.lastIndexOf('?') + 1)
@@ -91,7 +90,7 @@ export function getQueryObject(url) {
 }
 
 /**
- *get getByteLen
+ * get getByteLen
  * @param {Sting} val input value
  * @returns {number} output value
  */
@@ -187,7 +186,7 @@ export function toggleClass(element, className) {
 
 export const pickerOptions = [
   {
-    text: '今天',
+    text: 'Nowadays',
     onClick(picker) {
       const end = new Date()
       const start = new Date(new Date().toDateString())
@@ -196,7 +195,7 @@ export const pickerOptions = [
     }
   },
   {
-    text: '最近一周',
+    text: 'Last week',
     onClick(picker) {
       const end = new Date(new Date().toDateString())
       const start = new Date()
@@ -205,7 +204,7 @@ export const pickerOptions = [
     }
   },
   {
-    text: '最近一个月',
+    text: 'Last month',
     onClick(picker) {
       const end = new Date(new Date().toDateString())
       const start = new Date()
@@ -214,7 +213,7 @@ export const pickerOptions = [
     }
   },
   {
-    text: '最近三个月',
+    text: 'Last three months',
     onClick(picker) {
       const end = new Date(new Date().toDateString())
       const start = new Date()
@@ -236,15 +235,15 @@ export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 
   const later = function() {
-    // 据上一次触发时间间隔
+    // According to the last trigger interval
     const last = +new Date() - timestamp
 
-    // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
+    // The last time the wrapped function was called, the interval is last less than the set interval. wait
     if (last < wait && last > 0) {
       timeout = setTimeout(later, wait - last)
     } else {
       timeout = null
-      // 如果设定为immediate===true，因为开始边界已经调用过了此处无需调用
+      // If it is set to immediate===true, since the start boundary has already been called, there is no need to call it here.
       if (!immediate) {
         result = func.apply(context, args)
         if (!timeout) context = args = null
@@ -256,7 +255,7 @@ export function debounce(func, wait, immediate) {
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout
-    // 如果延时不存在，重新设定延时
+    // If the delay does not exist, reset the delay
     if (!timeout) timeout = setTimeout(later, wait)
     if (callNow) {
       result = func.apply(context, args)

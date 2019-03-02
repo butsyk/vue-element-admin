@@ -5,7 +5,7 @@ export default{
     dialogHeaderEl.style.cssText += ';cursor:move;'
     dragDom.style.cssText += ';top:0px;'
 
-    // 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
+    // // Get the original attribute ie dom element.currentStyle Firefox Google window.getComputedStyle(dom element, null);
     const getStyle = (function() {
       if (window.document.currentStyle) {
         return (dom, attr) => dom.currentStyle[attr]
@@ -15,7 +15,7 @@ export default{
     })()
 
     dialogHeaderEl.onmousedown = (e) => {
-      // 鼠标按下，计算当前元素距离可视区的距离
+      // Mouse down to calculate the distance of the current element from the viewable area
       const disX = e.clientX - dialogHeaderEl.offsetLeft
       const disY = e.clientY - dialogHeaderEl.offsetTop
 
@@ -31,7 +31,7 @@ export default{
       const minDragDomTop = dragDom.offsetTop
       const maxDragDomTop = screenHeight - dragDom.offsetTop - dragDomHeight
 
-      // 获取到的值带px 正则匹配替换
+      // Get the value with px regular match replacement
       let styL = getStyle(dragDom, 'left')
       let styT = getStyle(dragDom, 'top')
 
@@ -61,7 +61,7 @@ export default{
           top = maxDragDomTop
         }
 
-        // 移动当前元素
+        // Move current element
         dragDom.style.cssText += `;left:${left + styL}px;top:${top + styT}px;`
 
         // emit onDrag event

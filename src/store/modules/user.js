@@ -44,7 +44,7 @@ const user = {
   },
 
   actions: {
-    // 用户名登录
+    // Username login
     LoginByUsername({ commit }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
@@ -59,17 +59,17 @@ const user = {
       })
     },
 
-    // 获取用户信息
+    // Get user information
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getUserInfo(state.token).then(response => {
-          // 由于mockjs 不支持自定义状态码只能这样hack
+          // Since mockjs does not support custom status codes, it can only be hacked like this
           if (!response.data) {
             reject('Verification failed, please login again.')
           }
           const data = response.data
 
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+          if (data.roles && data.roles.length > 0) { // Verify that the returned roles are a non-null array
             commit('SET_ROLES', data.roles)
           } else {
             reject('getInfo: roles must be a non-null array!')
@@ -85,7 +85,7 @@ const user = {
       })
     },
 
-    // 第三方验证登录
+    // Third party verification login
     // LoginByThirdparty({ commit, state }, code) {
     //   return new Promise((resolve, reject) => {
     //     commit('SET_CODE', code)
@@ -98,8 +98,7 @@ const user = {
     //     })
     //   })
     // },
-
-    // 登出
+    //
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
@@ -113,7 +112,7 @@ const user = {
       })
     },
 
-    // 前端 登出
+    // Front end
     FedLogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
@@ -122,7 +121,7 @@ const user = {
       })
     },
 
-    // 动态修改权限
+    // Dynamically modify permissions
     ChangeRoles({ commit, dispatch }, role) {
       return new Promise(resolve => {
         commit('SET_TOKEN', role)
@@ -133,7 +132,7 @@ const user = {
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
           commit('SET_INTRODUCTION', data.introduction)
-          dispatch('GenerateRoutes', data) // 动态修改权限后 重绘侧边菜单
+          dispatch('GenerateRoutes', data) // Redraw the side menu after dynamically modifying the permissions
           resolve()
         })
       })

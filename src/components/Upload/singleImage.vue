@@ -23,7 +23,7 @@
 </template>
 
 <script>
-// 预览效果见付费文章
+// See the paid article for preview effects
 import { getToken } from '@/api/qiniu'
 
 export default {

@@ -1,11 +1,11 @@
-## 写在前面
-此组件仅提供一个创建TreeTable的解决思路
+## Written in front
+This component only provides a solution to create a TreeTable.
 
 ## prop说明
 #### *data*
-  **必填**
+  **Required**
 
-  原始数据,要求是一个数组或者对象
+  Raw data, the request is an array or object
   ```javascript
     [{
       key1: value1,

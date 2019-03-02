@@ -5,9 +5,9 @@ export default{
     el.addEventListener('click', e => {
       const customOpts = Object.assign({}, binding.value)
       const opts = Object.assign({
-        ele: el, // 波纹作用元素
-        type: 'hit', // hit 点击位置扩散 center中心点扩展
-        color: 'rgba(0, 0, 0, 0.15)' // 波纹颜色
+        ele: el, // Corrugated element
+        type: 'hit', // Hit click location diffusion center center point extension
+        color: 'rgba(0, 0, 0, 0.15)' // Ripple color
       }, customOpts)
       const target = opts.ele
       if (target) {

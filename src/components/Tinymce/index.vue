@@ -121,7 +121,7 @@ export default {
             _this.fullscreen = e.state
           })
         }
-        // 整合七牛上传
+        // Integrate seven cattle upload
         // images_dataimg_filter(img) {
         //   setTimeout(() => {
         //     const $image = $(img);
@@ -150,7 +150,7 @@ export default {
         //       progress(100);
         //     })
         //   }).catch(err => {
-        //     failure('出现未知问题，刷新页面，或者联系程序员')
+        //     failure('An unknown problem occurred, refresh the page, or contact the programmer')
         //     console.log(err);
         //   });
         // },

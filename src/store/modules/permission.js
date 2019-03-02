@@ -1,7 +1,7 @@
 import { asyncRouterMap, constantRouterMap } from '@/router'
 
 /**
- * 通过meta.role判断是否与当前用户权限匹配
+ * Determine whether to match the current user right by meta.role
  * @param roles
  * @param route
  */
@@ -14,7 +14,8 @@ function hasPermission(roles, route) {
 }
 
 /**
- * 递归过滤异步路由表，返回符合用户角色权限的路由表
+ * Recursively filter asynchronous routing tables
+ * and return routing tables that match user role permissions
  * @param routes asyncRouterMap
  * @param roles
  */

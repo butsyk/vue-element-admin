@@ -52,7 +52,7 @@ export default {
     }
   },
   computed: {
-    // 格式化数据源
+    // Formatted data source
     formatData: function() {
       let tmp
       if (!Array.isArray(this.data)) {
@@ -71,12 +71,12 @@ export default {
       row.row._show = show
       return show ? 'animation:treeTableShow 1s;-webkit-animation:treeTableShow 1s;' : 'display:none;'
     },
-    // 切换下级是否展开
+    // Switch to whether the lower level is expanded
     toggleExpanded: function(trIndex) {
       const record = this.formatData[trIndex]
       record._expanded = !record._expanded
     },
-    // 图标显示
+    // Icon display
     iconShow(index, record) {
       return (index === 0 && record.children && record.children.length > 0)
     }
